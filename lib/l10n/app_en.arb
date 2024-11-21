@@ -1,0 +1,10 @@
+{
+  "helloWorld": "Hello World",
+
+
+
+
+  "@_COMMANDS": {
+    "flutter gen-l10n": "Run this command in terminal after adding new value to localization."
+  }
+}

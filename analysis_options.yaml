@@ -1,0 +1,17 @@
+include: package:lint/strict.yaml
+
+analyzer:
+  plugins:
+    - custom_lint
+  exclude:
+    - '**/model/**'
+    - '**/app_state.dart'
+  errors:
+#    argument_type_not_assignable: ignore  :removed
+    avoid_classes_with_only_static_members: ignore
+    not_map_spread: ignore
+
+# You can customize the lint rules set to your own liking. A list of all rules
+# can be found at https://dart-lang.github.io/linter/lints/options/options.html
+linter:
+  rules:
