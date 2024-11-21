@@ -77,7 +77,7 @@ class _InAppWebViewState extends State<InAppWebView> {
           widget.webPageData['title'] as String? ?? "",
           style: const TextStyle(color: ResColors.white),
         ),
-        backgroundColor: ResColors.colorPrimary,
+        backgroundColor: ResColors.primary,
         centerTitle: true,
       ),
       body: StreamBuilder<int>(
@@ -88,7 +88,7 @@ class _InAppWebViewState extends State<InAppWebView> {
               // Display a loading indicator while the page is loading.
               child: Loader(
                 size: Size(32.w, 32.w),
-                backgroundColor: ResColors.colorPrimary,
+                backgroundColor: ResColors.primary,
               ),
             );
           }
@@ -98,7 +98,7 @@ class _InAppWebViewState extends State<InAppWebView> {
               child: Text(
                 'Failed to load the URL. Custom error message here.',
                 style: TextStyle(
-                  color: ResColors.colorPrimary,
+                  color: ResColors.textSecondary,
                 ),
               ),
             );

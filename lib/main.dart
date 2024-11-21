@@ -1,22 +1,19 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hitech_mobile/redux/app_state.dart';
 import 'package:hitech_mobile/redux/app_store.dart';
-import 'package:hitech_mobile/screens/non_auth/login/login.dart';
-import 'package:hitech_mobile/screens/splash/splash.dart';
+import 'package:hitech_mobile/resources/res_colors.dart';
 import 'package:hitech_mobile/utils/navigation_service.dart';
+import 'package:hitech_mobile/utils/notification_handler.dart';
 import 'package:hitech_mobile/utils/routes.dart';
 import 'package:hitech_mobile/utils/shared_pref_utils.dart';
-import 'package:hitech_mobile/utils/notification_handler.dart';
-import 'package:hitech_mobile/utils/connection_checker.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 void main() async {
@@ -57,11 +54,6 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
-  final routes = {
-    Routes.Splash: (context) => const Splash(),
-    Routes.Login: (context) => const Login(),
-  };
-
   Widget mainBuilder(_, __) {
     return OverlaySupport(
       child: StoreProvider<AppState>(
@@ -70,8 +62,8 @@ class _MyAppState extends State<MyApp> {
           builder: (context, String? selectedLocale) {
             return MaterialApp(
               navigatorKey: NavigationService.instance.navigationKey,
-              initialRoute: Routes.Splash,
-              onGenerateRoute: (settings) => routeCalled(settings),
+              initialRoute: Routes.splash,
+              onGenerateRoute: (settings) => Routes.generateRoute(settings),
               locale: Locale(selectedLocale ?? "en"),
               localizationsDelegates: const [
                 AppLocalizations.delegate,
@@ -84,19 +76,14 @@ class _MyAppState extends State<MyApp> {
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 useMaterial3: true,
+                primarySwatch: ResColors.primarySwatch,
+                primaryColor: ResColors.primarySwatch,
               ),
             );
           },
           converter: (state) => state.state.selectedLocale,
         ),
       ),
-    );
-  }
-
-  Route<dynamic>? routeCalled(RouteSettings settings) {
-    return MaterialPageRoute(
-      builder: (context) => routes[settings.name]!(context),
-      settings: settings,
     );
   }
 

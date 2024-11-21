@@ -27,7 +27,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 1000)).then(
-      (value) => Navigator.popAndPushNamed(context, Routes.Login),
+      (value) => Navigator.popAndPushNamed(context, Routes.login),
     );
 
     return Image.asset(

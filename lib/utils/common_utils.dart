@@ -43,7 +43,7 @@ class CommonUtils {
         color = ResColors.success;
         break;
       case MessageType.FAILED:
-        color = ResColors.failed;
+        color = ResColors.error;
         break;
       case MessageType.INFO:
         color = ResColors.info;

@@ -47,7 +47,7 @@ class NoInternetDialog extends StatelessWidget {
           decoration: BoxDecoration(
             color: ResColors.white,
             borderRadius: BorderRadius.circular(12.r),
-            border: Border.all(color: ResColors.colorPrimaryDark, width: 3.w),
+            border: Border.all(color: ResColors.primary, width: 3.w),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
