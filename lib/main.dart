@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,9 +17,7 @@ import 'package:redux/redux.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (await FlutterJailbreakDetection.jailbroken) {
-    exit(0);
-  }
+
   await SharedPrefUtils.init();
   final store = await AppStore.init();
   runApp(MyApp(store: store));

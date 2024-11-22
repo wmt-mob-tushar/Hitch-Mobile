@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hitech_mobile/screens/non_auth/login/login.dart';
+import 'package:hitech_mobile/screens/non_auth/login/login_register_screen.dart';
 import 'package:hitech_mobile/screens/splash/splash.dart';
 
 class Routes {
@@ -25,9 +27,9 @@ class Routes {
       case splash:
         return _buildRoute(const Splash());
 
-      // case login:
-      //   return _buildRoute(const LoginScreen());
-      //
+      case login:
+        return _buildRoute(const LoginScreen());
+
       // case register:
       //   return _buildRoute(const RegisterScreen());
       //

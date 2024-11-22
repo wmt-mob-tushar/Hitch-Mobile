@@ -11,7 +11,7 @@ class MessageBar extends StatelessWidget {
   final messageContext;
 
   const MessageBar({
-    @required this.text,
+    required this.text,
     this.color = ResColors.success,
     this.onRetry,
     this.messageContext,
